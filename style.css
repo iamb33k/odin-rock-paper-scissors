@@ -1,0 +1,36 @@
+body { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.player-choices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+.scoreboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.results{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    gap: 0;
+    margin: 0;
+    border: 0;
+}
+
+
+

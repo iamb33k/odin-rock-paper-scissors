@@ -15,96 +15,87 @@ function computerPlay(){
     return computerSelection;
 }
 
-// write a function that plays a single round of R, P, or S
+// function to run round of RPS on click of button if neither player has 5pts
 
 function singleRound(playerChoice, computerChoice){
+    if (playerScore < 5 && computerScore < 5){
+    computerPlay();
+    computerChoice = computerPlay();
+    playerChoice = this.value;
     if (playerChoice == "rock" && computerChoice == "paper"){
+            computerScore = computerScore + 1;
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "Sorry, you lose!";
             return("Sorry, you lose!");
         }
     else if (playerChoice == "rock" && computerChoice == "scissors"){
+            playerScore = playerScore + 1;
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "You win!";
             return("You win!");
         }
     else if (playerChoice == "rock" && computerChoice == "rock"){
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "Tie. Please try again!";
             return("Tie.");
         }
     else if (playerChoice == "paper" && computerChoice == "paper"){
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "Tie. Please try again!";
             return("Tie.");
         }
     else if (playerChoice == "paper" && computerChoice == "scissors"){
+            computerScore = computerScore + 1;
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "Sorry, you lose!";
             return("Sorry, you lose!");
         }
     else if (playerChoice == "paper" && computerChoice == "rock"){
+            playerScore = playerScore + 1;
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "You win!";
             return("You win!");
         }
     else if (playerChoice == "scissors" && computerChoice == "paper"){
+            playerScore = playerScore + 1;
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "You win!";
             return("You win!");
         }
     else if (playerChoice == "scissors" && computerChoice == "scissors"){
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "Tie. Please try again!";
             return("Tie.");
         }
     else if (playerChoice == "scissors" && computerChoice == "rock"){
+            computerScore = computerScore + 1;
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = "Sorry, you lose!";
             return("Sorry, you lose!");
         }
     else {
-            return("Something went wrong.")
+            document.getElementById("message").innerHTML = "Sorry, something went wrong.";
+            return("Something went wrong.");
         }
     }
 
-// loop to run the game 5 times
-
-function game(){
-let finalArray = []
- for (let i = 0; i <5; i++){
-     // computer makes selection
-     computerPlay();
-     // assign computer's selection to variable
-     computerChoice = computerPlay()
-     // ask player to make a selection
-     const playerChoice = prompt("rock, paper, or scissors?");
-     //run playerChoice vs computerChoice
-     singleRound(playerChoice, computerChoice);
-     //output choices
-     console.log(`You chose ${playerChoice} and the computer chose ${computerChoice}`);
-     //output result of single round
-     console.log(singleRound(playerChoice, computerChoice));
-     //update scoreboard and output
-     if (singleRound(playerChoice, computerChoice) == "You win!") {
-        playerScore =  playerScore + 1;
-        console.log(`Player score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
-     }
-    else if (singleRound(playerChoice, computerChoice) == "Sorry, you lose!") {
-        computerScore =  computerScore + 1;
-        console.log(`Player score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
-     }
-     else {
-        console.log(`Player score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
-     }
-    }
-    // calculate and display final score
-    console.log(`The final score is player: ${playerScore} and computer: ${computerScore}`);
-
-    //display result message
-    if (playerScore > computerScore){
-        console.log("Congrats! You win!");    
-    }
-    else if (playerScore < computerScore){
-        console.log("Sorry, you lost! Please try again.");
-    }
-    else if (playerScore = computerScore){
-        console.log("You tied! Could be worse...");
-    }
     else{
-        console.log("Something went wrong. Please try again.");
+        document.getElementById("message").innerHTML = "Game over!";
+        return("Game Over");
     }
- }
-    
-    
-    
-    
-    
-    
-    
+}
 
+//click events for each button
+
+ document.getElementById('rock').addEventListener('click', singleRound);
+ document.getElementById('paper').addEventListener('click', singleRound);
+ document.getElementById('scissors').addEventListener('click', singleRound);
