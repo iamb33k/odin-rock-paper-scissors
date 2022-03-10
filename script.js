@@ -24,61 +24,61 @@ function singleRound(playerChoice, computerChoice){
     playerChoice = this.value;
     if (playerChoice == "rock" && computerChoice == "paper"){
             computerScore = computerScore + 1;
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "Sorry, you lose!";
             return("Sorry, you lose!");
         }
     else if (playerChoice == "rock" && computerChoice == "scissors"){
             playerScore = playerScore + 1;
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "You win!";
             return("You win!");
         }
     else if (playerChoice == "rock" && computerChoice == "rock"){
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "Tie. Please try again!";
             return("Tie.");
         }
     else if (playerChoice == "paper" && computerChoice == "paper"){
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "Tie. Please try again!";
             return("Tie.");
         }
     else if (playerChoice == "paper" && computerChoice == "scissors"){
             computerScore = computerScore + 1;
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "Sorry, you lose!";
             return("Sorry, you lose!");
         }
     else if (playerChoice == "paper" && computerChoice == "rock"){
             playerScore = playerScore + 1;
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "You win!";
             return("You win!");
         }
     else if (playerChoice == "scissors" && computerChoice == "paper"){
             playerScore = playerScore + 1;
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "You win!";
             return("You win!");
         }
     else if (playerChoice == "scissors" && computerChoice == "scissors"){
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "Tie. Please try again!";
             return("Tie.");
         }
     else if (playerChoice == "scissors" && computerChoice == "rock"){
             computerScore = computerScore + 1;
-            document.getElementById("player-score").innerHTML = playerScore;
-            document.getElementById("computer-score").innerHTML = computerScore;
+            document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+            document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
             document.getElementById("message").innerHTML = "Sorry, you lose!";
             return("Sorry, you lose!");
         }
@@ -89,8 +89,14 @@ function singleRound(playerChoice, computerChoice){
     }
 
     else{
-        document.getElementById("message").innerHTML = "Game over!";
-        return("Game Over");
+        if (playerScore < computerScore){
+            document.getElementById("message").innerHTML = "Game over! You lost :(";
+            return("Game Over");
+        }
+        else if (computerScore < playerScore){
+            document.getElementById("message").innerHTML = "Game over! You won!!";
+            return("Game Over"); 
+        }
     }
 }
 
